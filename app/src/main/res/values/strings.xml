@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Rock-Paper-Scissors</string>
+    <string name="_0">0</string>
+    <string name="rock">ROCK</string>
+    <string name="paper">PAPER</string>
+    <string name="scissors">SCISSORS</string>
+    <string name="computer">COMPUTER</string>
+    <string name="player">PLAYER</string>
 </resources>

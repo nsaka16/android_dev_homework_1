@@ -1,10 +1,12 @@
 package ge.nsakandelidze.rps
 
+import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -65,6 +67,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateScore(playersChoice: Int, computersChoice: Int) {
         if (playersChoice == computersChoice) {
+            val player = findViewById<TextView>(R.id.players_score)
+            val computer = findViewById<TextView>(R.id.computers_score)
+            player.setTextColor(ContextCompat.getColor(this, R.color.yellow))
+            computer.setTextColor(ContextCompat.getColor(this, R.color.yellow))
             return
         } else if ((playersChoice == R.id.paper && computersChoice == R.id.scissors)
             || (playersChoice == R.id.scissors && computersChoice == R.id.rock)
@@ -82,13 +88,19 @@ class MainActivity : AppCompatActivity() {
     private fun incrementPlayersScore() {
         player.incrementScoreByOne()
         val findViewById = findViewById<TextView>(R.id.players_score)
+        val computer = findViewById<TextView>(R.id.computers_score)
         findViewById.setText(player.score.toString())
+        findViewById.setTextColor(ContextCompat.getColor(this, R.color.green))
+        computer.setTextColor(ContextCompat.getColor(this, R.color.black))
     }
 
     private fun incrementComputersScore() {
         computer.incrementScoreByOne()
+        val player = findViewById<TextView>(R.id.players_score)
         val findViewById = findViewById<TextView>(R.id.computers_score)
         findViewById.setText(computer.score.toString())
+        findViewById.setTextColor(ContextCompat.getColor(this, R.color.green))
+        player.setTextColor(ContextCompat.getColor(this, R.color.black))
     }
 }
 
